@@ -1,0 +1,4 @@
+FROM ocaml/opam
+
+#currently, it fails because need root to apt-get update, but need update to depext libdai deps
+RUN git clone https://github.com/KennethAdamMiller/opam-repository.git libdai_repo && opam pin add libdai libdai_repo/packages/libdai/libdai.1.0.0/ -y 

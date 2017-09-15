@@ -1,0 +1,8 @@
+FROM ocaml/opam
+
+#currently, it fails because need root to apt-get update, but need update to depext libdai deps
+RUN opam repository add dai_repo https://github.com/KennethAdamMiller/opam-repository.git && opam update
+USER root
+RUN apt-get update
+USER opam
+RUN opam install depext -y && opam depext --su --install libdai -y
