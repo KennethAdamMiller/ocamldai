@@ -9,6 +9,8 @@ let fg = new_FactorGraph factors in
 let _ = print_endline ("hello world! " ) in 
 let observation = new_Observation C_void in
 let observations = new_VecObservation C_void in
+let v = new_Var C_void in
+let _ = invoke observation "set" (C_list [v; C_int64 (Int64.of_int 0)]) in
 let _ = (invoke observations) "push_back" observation in 
 new_Evidence observations
 (*(C_list [(invoke observation "&" (C_list [C_void]))]) in ()*)

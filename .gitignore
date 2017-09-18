@@ -1,0 +1,11 @@
+oasis/_build/
+oasis/setup.data
+oasis/setup.log
+oasis/src/dai.ml
+oasis/src/dai.mli
+oasis/src/dai_stub.c
+oasis/src/orig_dai_stub.c
+oasis/src/setup.ml
+oasis/src/swig.ml
+oasis/src/swig.mli
+oasis/test.native
