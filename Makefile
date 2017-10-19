@@ -11,7 +11,7 @@ linuxconf:
 	cp libdai/Makefile.LINUX libdai/Makefile.conf
 
 libdai/lib/libdai.a: libdai
-	make -C libdai -j8
+	make -C libdai -j4
 	make -C libdai/swig dai_stub.c
 
 libdai_osx: libdai osxconf libdai/lib/libdai.a
