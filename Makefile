@@ -29,7 +29,7 @@ libdai_linux: libdai linuxconf libdai/lib/libdai.a
 	cp libdai/swig/*.mli $(libdai_caml)/src/
 	cp libdai/swig/*.c $(libdai_caml)/src/
 	make -C libdai
-	cd oasis ; rm setup.* ; ocaml setup.ml -configure ; oasis setup -setup-update dynamic ; make
+	cd oasis ; rm setup.* ; oasis setup -setup-update dynamic ; ocaml setup.ml -configure ; make
 
 
 test:

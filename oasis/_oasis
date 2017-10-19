@@ -16,9 +16,9 @@ Library "libdai"
   Modules: Swig, Dai
   CSources: dai_stub.c
   CompiledObject: native
-  CCOpt: "-I../../libdai/include" -I/opt/local/include -I/Users/kennethadammiller/homebrew/include/ -I/Users/kennethadammiller/homebrew/include/boost -fPIC -xc++ 
+  CCOpt: "-I../../libdai/include" -I/opt/local/include -I/Users/kennethadammiller/homebrew/include/ -I/Users/kennethadammiller/homebrew/include/boost -fPIC -xc++ -std=c++11
   if flag(targetosx)
-    CCOpt: "-I../../libdai/include" -I/opt/local/include -I/Users/kennethadammiller/homebrew/include/ -I/Users/kennethadammiller/homebrew/include/boost -fPIC -xc++ -DMACOSX
+    CCOpt: "-I../../libdai/include" -I/opt/local/include -I/Users/kennethadammiller/homebrew/include/ -I/Users/kennethadammiller/homebrew/include/boost -fPIC -xc++ -DMACOSX -std=c++11
   CCLib: -lgmpxx -lgmp -lstdc++ -L/opt/local/lib 
 
 Executable "test"
