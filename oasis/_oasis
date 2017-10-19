@@ -26,5 +26,6 @@ Executable "test"
   MainIs: test.ml
   BuildDepends: libdai
   CompiledObject: best
-  CCLib: -lgmpxx -lgmp ../../libdai/lib/libdai.a -lstdc++  -L/opt/local/lib 
+  CCOpt: -std=c++11
+  CCLib: -lgmpxx -lgmp ../../libdai/lib/libdai.a -lgmpxx -lgmp -lstdc++  -L/opt/local/lib 
 
