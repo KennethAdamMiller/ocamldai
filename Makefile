@@ -11,6 +11,7 @@ linuxconf:
 	cp libdai/Makefile.LINUX libdai/Makefile.conf
 
 libdai/lib/libdai.a: libdai
+	sed -i -e  "s/typedef int64_t int64;//g" libdai/swig/dai.i 
 	make -C libdai -j4
 	make -C libdai/swig dai_stub.c
 
@@ -27,10 +28,8 @@ libdai_linux: libdai linuxconf libdai/lib/libdai.a
 	cp libdai/swig/*.ml $(libdai_caml)/src/
 	cp libdai/swig/*.mli $(libdai_caml)/src/
 	cp libdai/swig/*.c $(libdai_caml)/src/
-	rm oasis/setup.*
-	sed -i -e  "s/typedef int64_t int64;//g" libdai/swig/dai.i 
 	make -C libdai
-	cd oasis ; oasis setup -setup-update dynamic ; make
+	cd oasis ; rm setup.* ; ocaml setup.ml -configure ; oasis setup -setup-update dynamic ; make
 
 
 test:
