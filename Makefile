@@ -28,7 +28,7 @@ libdai_linux: libdai linuxconf libdai/lib/libdai.a
 	cp libdai/swig/*.mli $(libdai_caml)/src/
 	cp libdai/swig/*.c $(libdai_caml)/src/
 	rm oasis/setup.*
-	sed -i libdai/swig/dai.i "typedef int64_t int64;"
+	sed -i -e  "s/typedef int64_t int64;//g" libdai/swig/dai.i 
 	make -C libdai/swig
 	cd oasis ; oasis setup -setup-update dynamic ; make
 
