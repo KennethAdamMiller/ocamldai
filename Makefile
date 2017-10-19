@@ -38,6 +38,7 @@ test:
 install:
 	cd $(libdai_caml) ; $(SETUP) -configure --bindir $(shell opam config var bin)
 	cd $(libdai_caml) ; $(SETUP) -install
+	cp libdai/lib/libdai.a $(shell opam config var lib)/libdai/_libdai.a
 
 clean:
 	rm -rf libdai
