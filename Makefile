@@ -20,11 +20,18 @@ libdai_osx: libdai osxconf libdai/lib/libdai.a
 	cp libdai/swig/*.c $(libdai_caml)/src/
 	make -C oasis
 
+#TODO should clean out setup.data setup.ml and edit the .i file to
+#remove the declaration for int64, also regenerate the interface 
+#files with swig
 libdai_linux: libdai linuxconf libdai/lib/libdai.a
 	cp libdai/swig/*.ml $(libdai_caml)/src/
 	cp libdai/swig/*.mli $(libdai_caml)/src/
 	cp libdai/swig/*.c $(libdai_caml)/src/
-	make -C oasis
+	rm oasis/setup.*
+	sed -i libdai/swig/dai.i "typedef int64_t int64;"
+	make -C libdai/swig
+	cd oasis ; oasis setup -setup-update dynamic ; make
+
 
 test:
 	./$(libdai_caml)/test.native
